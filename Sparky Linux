@@ -1,0 +1,27 @@
+-Sparky-Linux LXQt:
+  Instalado desde Universal USB
+  1. Error inicial ACPI: 
+      sudo nano /etc/default/grub
+          Antes: GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+        Después: GRUB_CMDLINE_LINUX_DEFAULT="libata.noacpi=1"
+        ctrl+x
+      sudo update-grub
+  2. Configurando la swap
+      sudo apt-get install gparted (configurar un espacio de memoria)
+      sudo apt-get install swapspace (instala el swapoff y swapon)
+  3. Configuración de las barras de tareas: 
+    Barra superior
+        -Menu.
+        -Lanzador Mozilla
+        -Lanzador carpeta
+        -Lanzador qps (administrador de archivos)
+        -Lanzador terminal
+        -Lanzador featherPad (editor de texto)
+        -barra de tareas
+        -(notificaciones, wifi, batería, extracción dispositivos)
+        -Fecha y hora
+     Barra derecha inferior (ajustar tamaño)
+        -Memoria
+        -Swap
+        -Procesador
+        -Numero de ventana
