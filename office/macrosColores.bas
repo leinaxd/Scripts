@@ -480,7 +480,7 @@ Attribute codigo.VB_ProcData.VB_Invoke_Func = "Normal.NewMacros.codigo"
 End Sub
 Sub CargarPaletaColores()
 Attribute CargarPaletaColores.VB_ProcData.VB_Invoke_Func = "Normal.NewMacros.asdfasdfasdf"
-'Carga la paleta de colores de la aplicación template
+'Carga la paleta de colores de la aplicaciÃ³n template
 '
 Dim cantidadPaginas As Integer
     cantidadPaginas = 5
