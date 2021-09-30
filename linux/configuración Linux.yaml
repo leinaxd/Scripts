@@ -1,0 +1,182 @@
+#shortcuts:
+#   win: para acceder al sistema operativo
+#   Alt: para comandos de navegacion
+#   ctrl: para ejecutar Comandos
+#   Fn: Opera sobre el teclado
+#       -Color del teclado
+#       -Bloquear teclado
+#       -Guardar CONTRASEÑAS (tipo gestor)
+#Ideas para mejorar al teclado:
+#  {,},[,],(, ), <, > y = deben ir juntos
+#   \, |, /, ~, #, &, $
+Ubuntu Budgie:
+    instalador: rufus
+    Particiones:
+        -root: ssd 120gb, primario ext4
+        -/home/dani/Documents: WD 2tb, primario ext4 (El logico es para hacerlo extraible)
+            #Hacerlo silencioso
+            -sleep: hdparam -y (suspende)
+            -Quien esta usando el disco: fatrace -c /dev/sda
+                -Chrome, dconf, wmctrl, xprop
+    Power: suspend 30 min, power saver
+    Configuraciones:
+        Apariencia:
+            -Widgets: Pocillo-dark
+            -Iconos: Oxygen
+            -DarkTheme: On
+            -Autostart: Desactivar plank
+            -wallstreet paper cycler: run
+        Panel superior:
+            -Izquierda:
+                -Eliminar AppMenu (todo on 3x5) poner BudgieMenu
+                -App Launcher (system monitor)
+                -Spacer (10) | Separator | spacer (10)
+                -Recently used | spacer(10)
+                -Trash
+            -Centro:
+                -Calendar custom (%H:%M %A %d %b)
+                -WeatherShow
+            -Derecha:
+                -Workspace Stopwatch
+                -Workspace Switcher
+                -AppIndicator Applet
+                -Cpu Frecuency |Spacer(5)
+                -Separator
+                -User Indicator
+    	Panel inferior:
+            -Izquierda:
+                -DropBy
+                -ShowTime
+                -Haste (github gist: PAT Token GIST)
+                -Quick Note
+                -Separator
+                -Screenshot
+                -BrightnessController (Remove settings daemons at start)
+            -Centro:
+                -Global Menu
+                -Budgie Pixel Saver (buttons)
+            -Derecha:
+                -Notifications
+                -Raven Trigger
+        Sonido de error: Ladrido de perro
+        Nemo file manager:
+            #Click derecho sobre el titulo para activar el menu
+            #ctrl + f6 para navegar entre paneles
+            -compact view
+            -Arrange by type
+            -Inherit view from parent = True
+            -Default view zoom = 200%
+            -Compact view zoom = 400%
+            -List view zoom = 400%
+            -All columns have same width
+            -View executable text files
+            -ask before moving to trash = False
+            -Show advance permissions = True
+            Bookmarks: #ctrl + d
+                -Stanford NLP
+                -Estudio
+                -Scripts
+                -Libros
+    Atajos de Mouse: #No implementado
+    	-Rueda primaria: page scroll
+        -Rueda secundaria: Mueve entre escritorios
+        -Botones auxiliares:
+            -0, 0, 0: Normal
+            -0, 0, 1: hace algo
+            -...
+            -1, 1, 1: Apaga la pc
+    Atajos del teclado (Fn + F1 o configuraciones):
+        #ToDo:
+        #   Shift toggle: Copiar/Pegar
+        #   Alt Toggle: Maximizar
+        #   Ctrl Toggle: Haste + Mostrar Scripts/Log report/Notes/ToDo
+        Run app: win + 0
+        Internet: win + 1
+        Directorio Home: win + 4
+
+        Terminal: win + 2
+        Calculadora comun: win + 5
+        Calculadora Genius: win + 8
+
+        gedit: win + 3 ($gedit)
+        VisualCode: win + 6 ($code)
+        Atom: win + 9 ($atom)
+
+        Configuraciones: win + /
+        Software: win + * ($gnome-software)
+        switch windows directly: win + z(alt + tab)
+        left/right window: win + left/right
+        Cerrar ventana: win + -
+        mover a siguiente ventana: Ctrl+shift+alt+flecha (se desea con win + flecha)
+
+
+        #Los comandos con "alt+win" cambian la visualizacion
+        Agrandar texto: alt + win + 1
+        Reducir texto: alt + win + 7
+        Lupa: alt + win + +
+        split window left/right: alt + win + 4/6
+        toggle maximize: alt + win + 5
+        toggle fullscreen: alt + win + 8
+        hide/show Desktop: alt + win + 9
+        Monitor: alt + win + /\*/- $xrandr --output VGA-1 --brightness 0.5/0.8/1
+            -Al iniciar:
+                -Brillo.sh: xrandr --output VGA-1 --brightness 0.8
+                -Ejecutar con Autostart
+            #todo,
+            #   Script en python/C/bash:
+            #       Args: Shortcut a ejecutar, parámetros
+            #       Output: Ejecuta el comando en bash
+            #   Opciones:
+            #       -Que su actualización sea persistente: Archivo YAML
+            #       -Que se ejecute al iniciar sesion
+            #   Ej1. incrementar/disminuir brillo
+            #Todo:
+            #   Script que cargue los shortcuts/keybindings para portar a otra pc
+    Aplicaciones:
+        -Chrome:
+            -web search navigator #Para navegar resultados de google con el teclado
+        -Atom:
+            -Dark-contrast-UI + one-black-syntax
+            -tab-size: 4
+        -VScode
+        -Genius math CALCULATOR
+        -Tilix: #Terminal
+            -tema: blueloco (20) , Orchis background negro
+            -preferences: ctrl + /
+            -view shortcuts: ctrl + *
+            -Add terminal auto/down/right: ctrl + 5/2/6
+            -Session name: cltr + 0
+            -switch terminal up/down/left/right: ctrl + up/down/left/right
+            -close terminal: ctrl + .
+            -view session sidebar: ctrl + space
+            -read only: ctrl + 9
+            -scroll up/down: alt + up/down
+            -page up/down: alt + left/right
+            -Resize terminal up/down/left/right: alt + 8/2/4/6
+            -reset and clear the terminal: alt + .
+            -fullscreen mode: alt + 5
+        -git/nodejs/npm
+        -session and setup:
+            workspaces:
+                -work_internet (code upload)
+                -work_debug (code writing)
+                -work_pdf (text reading)
+                -Scripts
+                -user_internet (random internet search)
+                -user_test (terminal)
+                -user_tmp (empty desktop)
+        -python
+            -sudo apt install pip
+            -pip install torch #pytorch
+        -BleachBits (as root)
+      Errores:
+          -shim-signed
+          #ls -l /var/crash
+          #sudo rm /var/crash/*
+          -Terminal sin colores
+          #cp /etc/skel/.bashrc ~/
+
+Install/uninstall desktops environments:
+    -sudo apt-get purge --auto-remove mate-desktop #Elimina dependencias
+    -sudo apt-get purge mate-desktop #Elimina configuration files
+    -sudo apt purge mate*
