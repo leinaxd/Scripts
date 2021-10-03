@@ -1,1 +1,1 @@
-#Configuración de KDE linux
+# Configuración de KDE linux
