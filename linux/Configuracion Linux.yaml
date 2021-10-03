@@ -1,0 +1,328 @@
+#shortcuts:
+#   win: para acceder al sistema operativo
+#   Alt: para comandos de navegacion
+#   ctrl: para ejecutar Comandos
+#   Fn: Opera sobre el teclado
+#       -Color del teclado
+#       -Bloquear teclado
+#       -Guardar CONTRASEÑAS (tipo gestor)
+#   win + shift: Accesibilidad
+#   win + alt: Navegación
+#   win + ctrl: Ejecución
+Particiones:
+    -root: ssd 120gb, primario ext4
+    -/home/dani/Documents: WD 2tb, primario ext4 (El logico es para hacerlo extraible)
+    #Hacer disco silencioso
+        -sleep: hdparam -y (suspende)
+        -Quien esta usando el disco?: fatrace -c /dev/sda
+            -Chrome, dconf, wmctrl, xprop
+Install/uninstall desktops environments:
+    #No recomendado, deja muchos bugs
+    -sudo apt-get purge --auto-remove mate-desktop #Elimina dependencias
+    -sudo apt-get purge mate-desktop #Elimina configuration files
+    -sudo apt purge mate*
+
+Kubuntu:
+    Instalacion:
+        sudo dd if=/path/kubuntu.iso of=/dev/sd[a/b/c/d/e] bs=1M
+    Aplicaciones:
+        Editor: Kate (font_size = 16) #Tiene sintaxis, terminal, buenos colores
+        Terminal: Tilix  #Abre terminales en pestañas
+        internet: Chrome (descargar y $sudo dpkg -i google.*.deb)
+        System: Disk usage
+        monitor: gnome-system-monitor
+        pip: Comentar deb cdrom de /etc/apt/sources.list
+    Activities:
+        work:
+            Description: for coding
+            Background image: Black
+        config:
+            Description: Customization of the system
+            Background image: Algun color
+        Entretainment:
+            Description: Youtube, games, music
+            Background image: Picture of the day, unplash wall paper
+    Apariencia:
+        Widgets:
+            Panel superior: Application Dashboard|Favorites Folder|Window list|separator|Pager|separator|Activity Manager|spacer|Digital clock|weather report|spacer|user switcher
+                Application Dashboard: icon = Diaspora
+                Favorite folder: icon = arrow-down
+                Pager: show application icons
+                Digital clock: dddd d MMMM
+                user switcher: user picture
+            Panel inferior: TodoList|Sticky Note|color picker|spacer|Global menu|spacer|translator|Color Picker|trash|System Tray
+                TodoList: Use big counter (incomplete tasks)
+                Sticky note: Translucid but white font
+                translator: $sudo apt install translate-shell
+                Color Picker: show history
+                System Tray: Kate|Volume... Notifications|Updates|Clipboard|Vault|Disk&Devices
+            Desktop: Minimal clock
+        Configuraciones:
+            Tema: Breeze Dark
+            #Font: Adjust all fonts: 14pts
+            Display and monitor: 150%
+            Screen edges: Esquina inferior derecha = present all desktops
+            Screen Locking: No despertar luego de suspender
+            Efectos: Background contrast|Blur (configurar)|Mouse mark|No slide
+            Virtual Desktop: Navigate wraps = False.
+            Task switcher: Larger icons|No virtual desktop|yes Activities|no minimization|sort=Stacking order|switching=remember for each activity
+            keyboard input: num lock on
+    Shortcuts:
+        win-shift: Line paint
+        win-shift-1: Mouse mark efect clear
+        win-shift-2/5: Zoom in/Zoom out
+        win-shift-.(supr): invertir colores
+        win-shift-3(pg down)/6(left)/9(pg up): Bright+/-
+        win-left/right/up/down: Selecciono ventana a la left/right/up/down
+        win-alt-left/right/up/down: Muevo al workspace left/right/up/down
+        win-alt-8/2/4/6: Pego la ventana contra arriba/abajo/izquierda/derecha
+        win-alt-7/9: Maximizar/fullscreen
+        win-alt-5: present all windows
+        win-alt-1: Fijar ventana sobre las demas #Fijar ventana
+        win-crtl-left/right/up/down: mover ventana al workspace left/right/up/down
+        win-ctrl-+/-: Cerrar/terminar ventana
+        win-ctrl-1: google-chrome
+        win-ctrl-2: tilix (terminal)
+        win-ctrl-3: kate (editor)
+        win-ctrl-4: home
+        win-ctrl-5: calculadora
+        win-ctrl-7: plasma-discover
+        win-ctrl-6: atom (codigo)
+        win-ctrl-8: genius calculator (O octave/matlab)
+        win-ctrl-9: code (VScode/pycharm)
+        win-ctrl-/: settings
+        win-ctrl-*: gnome-system-monitor
+        win-1: Activity entretainament
+        win-2: Activity work
+        win-*: Shutdown
+        win-tab: activity show
+        win-q: previous activity
+        win-a: next ativity
+File manager:
+    Bookmarks:
+        Stanford NLP
+        Estudio
+        Scripts
+        Libros
+Terminal:
+    ctrl-z: Pasar a segundo plano. (escribir fg para retomar)
+    Errores:
+        -Terminal sin colores
+        #cp /etc/skel/.bashrc ~/
+        #Preferencias: Default->command ->run command as a login shell
+python:
+    -pip -V
+    -pip install numpy
+    -pip install torch
+Atom:
+    Package: Script|Atom-runner
+    #Theme: Dark-contrast-UI + one-black-syntax
+    Configuraciones:
+        tab-size: 4
+        Script: panel right|
+    shortcuts:
+        ctrl-num0: script:run
+        ctrl-num1: script:run-options
+        ctrl-.: keybindings resolver
+        alt--: close tab
+        alt-*: reopen-closed-items
+        alt-+: open
+        alt-a/s: tab preious/next
+        alt-numpad4/numpad6: tab previous/next #Need unbind from editor
+        alt-numpad1/7: increase/decrease-font-size
+        alt-/: Opciones
+        alt-+: Open file
+        alt-numpad9: Open folder
+        #alt-3: cancel
+Ubuntu Budgie:
+    instalacion: rufus
+    Power: suspend 30 min, power saver
+    Configuraciones:
+        Apariencia:
+            -Widgets: Pocillo-dark
+            -Iconos: Oxygen
+            -DarkTheme: On
+            -Autostart: Desactivar plank
+            -wallstreet paper cycler: run
+        Panel superior:
+            -Izquierda: BudgieMenu|App Launcher|Spacer|Separator|spacer|Recently used|spacer|Trash
+                BudgieMenu: Eliminar App menu(3x5)
+                App Launcher: System monitor
+                Spacer: 10
+            -Centro: Calendar|WeatherShow
+                Calendar: custom (%H:%M %A %d %b)
+            -Derecha: Workspace Stopwatch|Workspace Switcher|AppIndicator|Cpu Frecuency|Separator|User Indicator
+    	Panel inferior:
+            -Izquierda: DropBy|ShowTime|Haste|Quick Note|Separator|Screenshot
+                Haste: github gist: PAT Token GIST
+            -Centro: Global Menu|Budgie Pixel Saver (buttons)
+            -Derecha: Notifications|Raven Trigger
+        Sonido de error: Ladrido de perro
+        Nemo file manager:
+            #Click derecho sobre el titulo para activar el menu
+            #ctrl + f6 para navegar entre paneles
+            -compact view
+            -Arrange by type
+            -Inherit view from parent = True
+            -Default view zoom = 200%
+            -Compact view zoom = 400%
+            -List view zoom = 400%
+            -All columns have same width
+            -View executable text files
+            -ask before moving to trash = False
+            -Show advance permissions = True
+            Bookmarks: #ctrl + d
+
+    Atajos del teclado (Fn + F1 o configuraciones):
+        Run app: win + 0
+        Internet: win + 1
+        Directorio Home: win + 4
+        Terminal: win + 2
+        Calculadora comun: win + 5
+        Calculadora Genius: win + 8
+        gedit: win + 3 ($gedit)
+        VisualCode: win + 6 ($code)
+        Atom: win + 9 ($atom)
+        Configuraciones: win + /
+        Software: win + * ($gnome-software)
+        switch windows directly: win + z(alt + tab)
+        left/right window: win + left/right
+        Cerrar ventana: win + -
+        mover a siguiente ventana: Ctrl+shift+alt+flecha (se desea con win + flecha)
+
+        #Los comandos con "alt+win" cambian la visualizacion
+        Agrandar texto: alt + win + 1
+        Reducir texto: alt + win + 7
+        Lupa: alt + win + +
+        split window left/right: alt + win + 4/6
+        toggle maximize: alt + win + 5
+        toggle fullscreen: alt + win + 8
+        hide/show Desktop: alt + win + 9
+        Monitor: alt + win + /\*/- $xrandr --output VGA-1 --brightness 0.5/0.8/1
+            -Al iniciar:
+                -Brillo.sh: xrandr --output VGA-1 --brightness 0.8
+                -Ejecutar con Autostart
+    Aplicaciones:
+        -Chrome:
+            -web search navigator #Para navegar resultados de google con el teclado
+        -Atom:
+        -VScode
+        -Genius math CALCULATOR
+        -Tilix: #Terminal
+            -tema: blueloco (20) , Orchis background negro
+            -preferences: ctrl + /
+            -view shortcuts: ctrl + *
+            -Add terminal auto/down/right: ctrl + 5/2/6
+            -Session name: cltr + 0
+            -switch terminal up/down/left/right: ctrl + up/down/left/right
+            -close terminal: ctrl + .
+            -view session sidebar: ctrl + space
+            -read only: ctrl + 9
+            -scroll up/down: alt + up/down
+            -page up/down: alt + left/right
+            -Resize terminal up/down/left/right: alt + 8/2/4/6
+            -reset and clear the terminal: alt + .
+            -fullscreen mode: alt + 5
+        -git/nodejs/npm
+        -session and setup:
+            workspaces:
+                -work_internet (code upload)
+                -work_debug (code writing)
+                -work_pdf (text reading)
+                -Scripts
+                -user_internet (random internet search)
+                -user_test (terminal)
+                -user_tmp (empty desktop)
+        -python
+            -sudo apt install pip
+            -pip install torch #pytorch
+        -BleachBits (as root)
+      Errores:
+          -shim-signed
+          #ls -l /var/crash
+          #sudo rm /var/crash/*
+          -Terminal sin colores
+          #cp /etc/skel/.bashrc ~/
+          #Preferencias: Default->command ->run command as a login shell
+
+
+#shortcuts:
+#   win: para acceder al sistema operativo
+#   Alt: para comandos de navegacion
+#   ctrl: para ejecutar Comandos
+#   Fn: Opera sobre el teclado
+#       -Color del teclado
+#       -Bloquear teclado
+#       -Guardar CONTRASEÑAS (tipo gestor)
+#   win + shift: Accesibilidad
+#   win + alt: Navegación
+#   win + ctrl: Ejecución
+#Ideas para mejorar al teclado:
+#  {,},[,],(, ), <, > y = deben ir juntos
+#   \, |, /, ~, #, &, $
+#Atajos de teclado ideales
+#Dedos de la mano:
+Mano:
+    Izquierda/Derecha: I/D
+    Metacarpio: M
+    Falanges: F
+    Palma de la mano: 0
+    Dedo gordo: 1
+    Dedo índice: 2
+    Dedo medio: 3
+    Dedo anular: 4
+    Dedo meñique: 5
+#ToDo:
+#   Shift toggle: Copiar/Pegar
+#   Alt Toggle: Maximizar
+#   Ctrl Toggle: Haste + Mostrar Scripts/Log report/Notes/ToDo
+#   Fn Toggle: Keyboard light on/off
+#   Script en python/C/bash:
+#       Args: Shortcut a ejecutar, parámetros
+#       Output: Ejecuta el comando en bash
+#       Opciones:
+#            -Que su actualización sea persistente: Archivo YAML
+#            -Que se ejecute al iniciar sesion
+#       Ej1. incrementar/disminuir brillo
+#   Script que cargue los shortcuts/keybindings para portar a otra pc
+Teclado ideal:
+    Linea inferior:
+        #Old: Ctrl|win|alt|Espacio|ctrl gr|Fn|iluminacion|Ctrl:
+        Tab|Espacio|ctrl|win|alt|iluminacion|fn|alt gr|shift forma L:
+            Tab(IM5): no hace falta estirarse tanto
+            Espacio(IF1): palma de la mano o dedo gordo
+            cltr(IF1): Comandos de un programa (dedo gordo)
+            win(IF1): Comandos del sistema operativo (dedo gordo)
+            alt(IF1): Comandos de navegación (sistema operativo/programas)
+    Linea 1:
+        Shift|<|z|x|c|v|b|n|m|,|.|-|shift L
+    Linea 2:
+        Bloq. Mayus|a|s|d|f|g|h|j|k|l|ñ|{|}|Enter L:
+    Linea 3:
+        #Old: tab|q|w|e|r|t|y|u|i|o|p|`|+|Enter L
+        Retroceso|q|w|e|r|t|y|u|i|o|p|`|+|Enter L
+    Linea 4:
+        #Old: º|1|2|3|4|5|6|7|8|9|0|'|¡|Retroceso
+        #Space(50%)|Retroceso (25%)|reboot|power|suspend
+        Esc|F1|F2|F3|F4|F5|F6|F7|F8|F9|F10|F11|F12
+    Linea 5:
+        #old: Esc|F1|F2|F3|F4|F5|F6|F7|F8|F9|F10|F11|F12
+        Iluminacion / selector de colores HSV
+    Flechas:
+        Navegación:
+            Left|Right|Up|Down
+        Accesibilidad:
+            #old: impr pant|bloq. despl|interrupt|insert|supr|Home|end|av pag.|re pag
+            Zoom In|Zoom Out|Bright +|Bright -|Read|pointer
+            pointer: Draw/show cursor
+    Numpad:
+        0|.|intro|1|2|3|intro|4|5|6|+|7|8|9|+|Bloq. num|/|*|-
+
+Mouse ideal:
+    -Rueda primaria: page scroll
+    -Rueda secundaria: Mueve entre escritorios
+    -Botones auxiliares:
+        -0, 0, 0: Normal
+        -0, 0, 1: hace algo
+        -...
+        -1, 1, 1: Apaga la pc
